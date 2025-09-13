@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const auth_1 = require("../middleware/auth");
+const resumeController_1 = require("../controllers/resumeController");
+const resumeRouter = (0, express_1.Router)();
+resumeRouter.post("/", auth_1.authMiddleware, resumeController_1.createResume);
+resumeRouter.get("/", auth_1.authMiddleware, resumeController_1.getUserResumes);
+resumeRouter.post("/:id/versions", auth_1.authMiddleware, resumeController_1.createNewResumeVersion);
+resumeRouter.get("/:id/pdf", auth_1.authMiddleware, resumeController_1.downloadResumePDF);
+resumeRouter.get("/:id", auth_1.authMiddleware, resumeController_1.getResumeById);
+resumeRouter.put("/:id", auth_1.authMiddleware, resumeController_1.updateResume);
+resumeRouter.delete("/:id", auth_1.authMiddleware, resumeController_1.deleteResume);
+exports.default = resumeRouter;

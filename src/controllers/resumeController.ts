@@ -1,7 +1,7 @@
 import User from "../models/User";
 import {Request,Response} from "express"
 import { generateResumePDF } from "../utils/pdfGenerator";
-import  { Resume, ResumeType, ResumeVersion, ResumeVersionType } from "../models/Resume";
+import  { Resume, ResumeVersion,  } from "../models/Resume";
 import mongoose from "mongoose";
 import { AuthRequest } from "../middleware/auth";
 
