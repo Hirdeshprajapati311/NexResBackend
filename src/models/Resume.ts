@@ -13,7 +13,9 @@ const PersonalInfoSchema = new Schema({
   fullName: { type: String, default: '' },
   phone: { type: String, default: '' },
   email: { type: String, default: '' },
-  summary: { type: String, default: '' }
+  summary: { type: String, default: '' },
+  linkedin: { type: String, default: '' },
+  role: { type: String, default: '' }
 }, { _id: false });
 
 const EducationSchema = new Schema({

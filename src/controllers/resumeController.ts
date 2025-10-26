@@ -76,25 +76,6 @@ export const getResumeById = async (req: Request, res: Response) => {
 };
 
 
-export const updateResume = async (req: Request, res: Response) => {
-  try {
-    
-    const { _id: versionId, personal, education, experience, skills } = req.body;
-
-    const updatedVersion = await ResumeVersion.findByIdAndUpdate(
-      versionId,
-      { personal, education, experience, skills },
-      { new: true }
-    ).lean();
-
-    if (!updatedVersion) return res.status(404).json({ message: "Version to update not found" });
-
-    res.json(updatedVersion);
-  } catch (err) {
-    console.error("Error updating resume:", err);
-    res.status(500).json({ message: "Error updating resume" });
-  }
-}
 
 export const createNewResumeVersion = async (req: AuthRequest, res: Response) => {
   const session = await mongoose.startSession();
